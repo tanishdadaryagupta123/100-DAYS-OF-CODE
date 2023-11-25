@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int fib(int n) {
+        if(n == 0 || n ==1){
+            return n;
+        }
+        int start =0 , end =1 , ans =0;
+        for(int i = 1 ; i<n; i++){
+            ans = start+end;
+            start = end;
+            end =ans;
+
+        }
+        return ans;
+    }
+};
