@@ -1,0 +1,31 @@
+class Solution {
+     string ans= "";
+    void pre(TreeNode* root){
+        if(root == nullptr){
+            return ;
+        }
+        ans += to_string(root->val);
+
+        if(root->left == nullptr && root->right == nullptr){
+            return ;
+        }
+
+        ans += "(";
+        pre(root->left);
+        ans += ")";
+
+        if(root->right != nullptr){
+            ans += "(";
+     pre(root->right);
+        ans += ")";
+        }
+
+    }
+
+    //main
+public:string tree2str(TreeNode* root) {
+    pre(root);
+        return ans;
+
+    }
+};
