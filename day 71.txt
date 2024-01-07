@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int numberOfArithmeticSlices(vector<int>& nums) {
+        long long ans = 0 ; 
+        int n = nums.size();
+
+        unordered_map<long , long>mp[n];
+
+        for(int i = 0 ; i < n ; i++){
+            for(int j =0 ; j<i;j++){
+                long cnt = 1;
+                long long diff = (long)nums[i]-(long)nums[j];
+
+                if(mp[j].count(diff)){
+                    cnt = mp[j][diff];
+                    mp[i][diff] += cnt;
+                    ans+=cnt;
+                }
+                mp[i][diff] += 1;
+            }
+        }
+        return ans;
+    }
+};
